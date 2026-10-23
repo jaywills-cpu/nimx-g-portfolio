@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080b09">
+<meta name="description" content="NIMX-G Digital Solutions offers website development, blog creation, website customisation and graphic design.">
+<title>NIMX-G | Digital Solutions</title>
+
+<style>
+:root {
+    --bg: #080b09;
+    --card: #101611;
+    --green: #39ff88;
+    --gold: #f3c969;
+    --text: #f4f7f4;
+    --muted: #aab5ad;
+    --border: rgba(57,255,136,.18);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,11,9,.96);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    min-height: 68px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--green);
+}
+
+.logo small {
+    color: var(--gold);
+    font-size: 9px;
+    display: block;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.nav-links a:hover {
+    color: var(--green);
+}
+
+.menu-btn {
+    display: none;
+    color: var(--green);
+    background: transparent;
+    border: 1px solid var(--border);
+    padding: 6px 11px;
+    border-radius: 7px;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 480px;
+    padding: 85px 0 70px;
+    background:
+        radial-gradient(ellipse at 85% 20%, rgba(57,255,136,.09), transparent 38%),
+        radial-gradient(ellipse at 10% 85%, rgba(243,201,105,.07), transparent 38%);
+}
+
+#particles {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 12px;
+    color: var(--green);
+    border: 1px solid var(--border);
+    background: rgba(57,255,136,.05);
+    border-radius: 30px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(38px, 8vw, 68px);
+    line-height: 1.08;
+    margin-bottom: 20px;
+    letter-spacing: -2px;
+}
+
+.gradient-text {
+    color: var(--green);
+    text-shadow: 0 0 25px rgba(57,255,136,.16);
+}
+
+.gold-text {
+    color: var(--gold);
+}
+
+.hero p {
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 27px;
+}
+
+.typing-line {
+    color: var(--gold);
+    font-weight: bold;
+    min-height: 27px;
+    margin: -9px 0 17px;
+}
+
+.cursor {
+    display: inline-block;
+    width: 2px;
+    height: 18px;
+    background: var(--green);
+    vertical-align: middle;
+    animation: blink .7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 19px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 22px rgba(57,255,136,.15);
+}
+
+.btn-primary {
+    background: var(--green);
+    color: #061008;
+}
+
+.btn-secondary {
+    border: 1px solid var(--gold);
+    color: var(--gold);
+}
+
+.section {
+    padding: 65px 0;
+}
+
+.section-heading {
+    margin-bottom: 28px;
+}
+
+.eyebrow {
+    color: var(--green);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(26px, 5vw, 36px);
+    line-height: 1.2;
+    margin: 8px 0;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 14px;
+    max-width: 600px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.card {
+    padding: 21px 18px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: 13px;
+    transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+
+.card:hover {
+    border-color: var(--green);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.22);
+}
+
+.card-symbol {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    background: rgba(57,255,136,.08);
+    border: 1px solid var(--border);
+    color: var(--green);
+    font-size: 21px;
+    margin-bottom: 16px;
+}
+
+.card h3 {
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 13px;
+}
+
+.price {
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.price small {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.project {
+    overflow: hidden;
+    border-radius: 13px;
+    background: var(--card);
+    border: 1px solid var(--border);
+}
+
+.project-preview {
+    min-height: 155px;
+    padding: 20px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    background:
+        radial-gradient(circle at 80% 20%, rgba(57,255,136,.16), transparent 40%),
+        #101710;
+    border-bottom: 1px solid var(--border);
+}
+
+.preview-title {
+    font-size: 25px;
+    font-weight: 900;
+    color: var(--green);
+}
+
+.preview-gold {
+    color: var(--gold);
+    font-size: 12px;
+}
+
+.project-info {
+    padding: 17px;
+}
+
+.project-info p {
+    color: var(--muted);
+    font-size: 13px;
+    margin: 5px 0 12px;
+}
+
+.tag {
+    display: inline-block;
+    color: var(--green);
+    background: rgba(57,255,136,.07);
+    border-radius: 5px;
+    padding: 4px 8px;
+    font-size: 10px;
+    margin: 3px 3px 0 0;
+}
+
+.about-box {
+    padding: 26px;
+    border: 1px solid var(--border);
+    background: linear-gradient(120deg, #101710, #10120f);
+    border-radius: 15px;
+}
+
+.about-box p {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.about-points {
+    margin-top: 17px;
+    color: var(--green);
+    font-size: 13px;
+}
+
+.cta {
+    text-align: center;
+    padding: 40px 23px;
+    border: 1px solid rgba(243,201,105,.35);
+    border-radius: 17px;
+    background:
+        radial-gradient(ellipse at 50% 100%, rgba(57,255,136,.09), transparent 65%),
+        var(--card);
+}
+
+.cta p {
+    max-width: 530px;
+    margin: 12px auto 23px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+footer {
+    padding: 26px 0;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+footer strong {
+    color: var(--green);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.float-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--green);
+    border-radius: 50%;
+    margin-right: 7px;
+    box-shadow: 0 0 10px var(--green);
+}
+
+@media (max-width: 650px) {
+    .nav {
+        min-height: 62px;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 62px;
+        left: 0;
+        right: 0;
+        padding: 15px 4%;
+        background: #080b09;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links.open {
+        display: block;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 11px 4px;
+    }
+
+    .hero {
+        padding: 65px 0 55px;
+        min-height: auto;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 48px 0;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .about-box {
+        padding: 20px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <a href="#home" class="logo">NIMX<span>-G</span><small>DIGITAL SOLUTIONS</small></a>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open navigation" aria-expanded="false">MENU ☰</button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+    <canvas id="particles" aria-hidden="true"></canvas>
+
+    <div class="container hero-content">
+        <div class="badge"><span class="float-dot"></span> CREATIVE DIGITAL SERVICES</div>
+
+        <h1>We build your<br>ideas into <span class="gradient-text">reality.</span></h1>
+
+        <div class="typing-line">
+            We create <span id="typingText">websites</span><span class="cursor"></span>
+        </div>
+
+        <p>
+            Welcome to NIMX-G. We create modern websites, personal blogs,
+            and eye-catching promotional designs to help ideas and businesses
+            build their online presence.
+        </p>
+
+        <div class="buttons">
+            <a href="#portfolio" class="btn btn-primary">Explore Our Work ↗</a>
+            <a href="#contact" class="btn btn-secondary">Start a Project</a>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="services">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="eyebrow">What We Offer</span>
+            <h2>Digital services that <span class="gradient-text">deliver.</span></h2>
+            <p>Practical digital solutions for creators, entrepreneurs and small businesses.</p>
+        </div>
+
+        <div class="grid">
+            <article class="card reveal">
+                <div class="card-symbol">⌘</div>
+                <h3>Website Development</h3>
+                <p>Responsive, attractive websites designed to introduce your business to the world.</p>
+                <div class="price">From $20 <small>/ project</small></div>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-symbol">✳</div>
+                <h3>Flyer Design</h3>
+                <p>Promotional graphics for products, events, launches and business advertising.</p>
+                <div class="price">From $5 <small>/ design</small></div>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-symbol">▤</div>
+                <h3>Blog Creation</h3>
+                <p>Clean blog layouts for sharing articles, ideas, stories and useful information.</p>
+                <div class="price">From $15 <small>/ project</small></div>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-symbol">⌁</div>
+                <h3>Website Customisation</h3>
+                <p>Small layout changes, styling improvements and fixes to existing websites.</p>
+                <div class="price">From $5 <small>/ task</small></div>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-symbol">▧</div>
+                <h3>Landing Pages</h3>
+                <p>Focused web pages to present a product, service, project or personal brand.</p>
+                <div class="price">From $15 <small>/ page</small></div>
+            </article>
+
+            <article class="card reveal">
+                <div class="card-symbol">✦</div>
+                <h3>Social Media Graphics</h3>
+                <p>Simple branded graphics to help your posts look consistent and professional.</p>
+                <div class="price">From $5 <small>/ design</small></div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="portfolio">
+    <div class="container">
+        <div class="section-heading reveal">
+            <span class="eyebrow">Selected Concepts</span>
+            <h2>Ideas brought to <span class="gold-text">life.</span></h2>
+            <p>These are demonstration concepts showing the kind of work we can develop.</p>
+        </div>
+
+        <div class="portfolio-grid">
+            <article class="project reveal">
+                <div class="project-preview">
+                    <div>
+                        <div class="preview-title">NEXORA</div>
+                        <div class="preview-gold">YOUR BUSINESS. YOUR FUTURE.</div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Business Website Concept</h3>
+                    <p>A modern landing-page concept for a fictional business.</p>
+                    <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive Design</span>
+                </div>
+            </article>
+
+            <article class="project reveal">
+                <div class="project-preview">
+                    <div>
+                        <div class="preview-title" style="color:var(--gold)">GLOW UP</div>
+                        <div class="preview-gold">YOUR STYLE. YOUR STATEMENT.</div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Promotional Design Concept</h3>
+                    <p>A sample promotional design direction for a fictional fashion brand.</p>
+                    <span class="tag">Graphic Design</span><span class="tag">Branding</span>
+                </div>
+            </article>
+        </div>
+
+        <p style="color:var(--muted);font-size:11px;margin-top:14px;">
+            Demo projects are illustrative concepts, not completed client commissions.
+        </p>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <div class="container">
+        <div class="about-box reveal">
+            <span class="eyebrow">About NIMX-G</span>
+            <h2>Small ideas can make <span class="gradient-text">big moves.</span></h2>
+            <p>
+                NIMX-G Digital Solutions is a growing digital-services brand focused
+                on website development, blog creation and graphic design.
+                Our goal is to make a professional online presence more accessible
+                to individuals and small businesses.
+            </p>
+            <p>
+                Every project starts with understanding what the customer needs
+                and agreeing on the scope, price and delivery time.
+            </p>
+            <div class="about-points">
+                ✓ Mobile-friendly layouts &nbsp; ✓ Clear project pricing<br>
+                ✓ Direct communication &nbsp; ✓ Designs focused on your goals
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="contact">
+    <div class="container">
+        <div class="cta reveal">
+            <span class="eyebrow">Have a Project in Mind?</span>
+            <h2>Let's create something <span class="gradient-text">great.</span></h2>
+            <p>
+                Tell us about your website, blog or design idea.
+                We'll discuss the requirements and agree on a price before work begins.
+            </p>
+            <div class="buttons" style="justify-content:center;">
+                <a class="btn btn-primary" id="whatsappBtn"
+                   href="https://wa.me/2349137188966?text=Hello%20NIMX-G%2C%20I%20am%20interested%20in%20your%20digital%20services."
+                   target="_blank" rel="noopener noreferrer">Chat on WhatsApp ↗</a>
+
+                <a class="btn btn-secondary" href="#services">View Services</a>
+            </div>
+            <p style="font-size:11px;margin-bottom:0;margin-top:17px;">
+                WhatsApp: +234 913 718 8966
+            </p>
+        </div>
+    </div>
+</section>
+</main>
+
+<footer>
+    <div class="container">
+        <strong>NIMX-G</strong> · Digital Solutions<br>
+        <span>Website Development · Graphic Design · Blog Creation</span><br>
+        <span>© <span id="year"></span> NIMX-G. All rights reserved.</span>
+    </div>
+</footer>
+
+<script>
+(function () {
+    "use strict";
+
+    // Current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile navigation
+    var menuBtn = document.getElementById("menuBtn");
+    var navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+        var isOpen = navLinks.classList.toggle("open");
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
+        menuBtn.textContent = isOpen ? "CLOSE ×" : "MENU ☰";
+    });
+
+    navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navLinks.classList.remove("open");
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.textContent = "MENU ☰";
+        });
+    });
+
+    // Lightweight rotating typing text
+    var words = ["websites", "blogs", "flyer designs", "digital experiences"];
+    var wordIndex = 0;
+    var charIndex = 0;
+    var deleting = false;
+    var typingText = document.getElementById("typingText");
+
+    function typeEffect() {
+        var word = words[wordIndex];
+
+        if (deleting) {
+            charIndex--;
+        } else {
+            charIndex++;
+        }
+
+        typingText.textContent = word.substring(0, charIndex);
+
+        var delay = deleting ? 45 : 85;
+
+        if (!deleting && charIndex === word.length) {
+            deleting = true;
+            delay = 1150;
+        } else if (deleting && charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            delay = 350;
+        }
+
+        window.setTimeout(typeEffect, delay);
+    }
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        window.setTimeout(typeEffect, 500);
+    }
+
+    // Reveal cards as they enter the screen.
+    var revealItems = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08 });
+
+        revealItems.forEach(function (item) {
+            observer.observe(item);
+        });
+    } else {
+        revealItems.forEach(function (item) {
+            item.classList.add("visible");
+        });
+    }
+
+    // Decorative particles: only animate while the page is visible.
+    var canvas = document.getElementById("particles");
+    var ctx = canvas.getContext("2d");
+    var particles = [];
+    var animationFrame = null;
+    var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function resizeCanvas() {
+        var rect = canvas.getBoundingClientRect();
+        var ratio = Math.min(window.devicePixelRatio || 1, 1.5);
+
+        canvas.width = Math.floor(rect.width * ratio);
+        canvas.height = Math.floor(rect.height * ratio);
+
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+
+        particles = [];
+
+        var count = Math.min(28, Math.floor(rect.width / 16));
+
+        for (var i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * rect.width,
+                y: Math.random() * rect.height,
+                r: Math.random() * 1.7 + 0.5,
+                speed: Math.random() * 0.22 + 0.06,
+                alpha: Math.random() * 0.45 + 0.12
+            });
+        }
+
+        if (!reducedMotion && !document.hidden) {
+            startAnimation();
+        } else {
+            drawParticles(false);
+        }
+    }
+
+    function drawParticles(move) {
+        var rect = canvas.getBoundingClientRect();
+
+        ctx.clearRect(0, 0, rect.width, rect.height);
+
+        particles.forEach(function (p) {
+            if (move) {
+                p.y -= p.speed;
+
+                if (p.y < -3) {
+                    p.y = rect.height + 3;
+                    p.x = Math.random() * rect.width;
+                }
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = "rgba(57,255,136," + p.alpha + ")";
+            ctx.fill();
+        });
+    }
+
+    function animateParticles() {
+        if (document.hidden || reducedMotion) {
+            animationFrame = null;
+            return;
+        }
+
+        drawParticles(true);
+        animationFrame = window.requestAnimationFrame(animateParticles);
+    }
+
+    function startAnimation() {
+        if (animationFrame === null && !document.hidden && !reducedMotion) {
+            animationFrame = window.requestAnimationFrame(animateParticles);
+        }
+    }
+
+    document.addEventListener("visibilitychange", function () {
+        if (document.hidden) {
+            if (animationFrame !== null) {
+                window.cancelAnimationFrame(animationFrame);
+                animationFrame = null;
+            }
+        } else {
+            startAnimation();
+        }
+    });
+
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+})();
+</script>
+
+</body>
+  </html>
